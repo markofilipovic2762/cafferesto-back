@@ -55,7 +55,7 @@ router.get("/:id", async (req, res) => {
   const items = await pool.query(
     `SELECT oi.*, mi.name, mi.price_rs 
      FROM cafferesto.order_items oi 
-     JOIN cafferesto.menu_items mi ON mi.id=oi.item_id
+     JOIN cafferesto.menu_items mi ON mi.id=oi.menu_item_id
      WHERE order_id=$1`,
     [req.params.id]
   );
